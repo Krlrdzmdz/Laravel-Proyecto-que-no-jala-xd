@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 //Spatie
 use Spatie\Permission\Models\Role;
 
+/**
+ * REINSTALA LARAGOOOOOOOOOOOOOOOOOOOOOON
+ */
 
 class RoleSeeder extends Seeder
 {
