@@ -12,6 +12,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -31,5 +35,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScrips
     </body>
 </html>
