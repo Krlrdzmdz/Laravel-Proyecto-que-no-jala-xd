@@ -1,15 +1,19 @@
-<form class="md: w-1/2 space-y-5">
+
+<form class="md: w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Titulo de la Vacante')" />
 
         <x-text-input   id="titulo" 
-                        class="block mt-1 w-full " 
-                        type="text" 
-                        name="titulo" 
+                        class="block mt-1 w-full" 
+                        type="text"
+                        wire:model="titulo" 
                         :value="old('titulo')" 
-                        />
+        />
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        @error('titulo')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+
     </div>
 
     <div>
@@ -17,15 +21,19 @@
 
         <select  
             id="salario"
-            name="salario"
+            wire:model="salario"
             class="rounded-md block border-gray-300 w-full">
             <option>-- Seleccione --</option>
-            @foreach ($salarios as $item)
-                <option value="{{ $salario->id }}">{{$item->$salario}}</option>
+            @foreach ($salarios as $salario)
+                <option value="{{ $salario->id }}">{{$salario->salario}}</option>   
+            @endforeach
 
         </select>
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        @error('salario')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+
     </div>
 
     <div>
@@ -33,11 +41,18 @@
 
         <select  
             id="categoria"
-            name="categoria"
+            wire:model="categoria"
             class="rounded-md block border-gray-300 w-full">
+            <option>-- Seleccione --</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id }}">{{$categoria->categoria}}</option>
+            @endforeach
         </select>
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+
     </div>
 
     <div>
@@ -46,11 +61,15 @@
         <x-text-input   id="puesto" 
                         class="block mt-1 w-full" 
                         type="text"
-                        name="puesto" 
+                        wire:model="puesto" 
                         :value="old('puesto')" 
-                        />
+        />
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        @error('puesto')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+        
+
     </div>
 
     <div>
@@ -59,38 +78,52 @@
         <x-text-input   id="ultimo_dia" 
                         class="block mt-1 w-full" 
                         type="date" 
-                        name="ultimo_dia" 
+                        wire:model="ultimo_dia" 
                         :value="old('ultimo_dia')" 
-                        />
+        />
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+
     </div>
 
-    <div>
+   <!-- <div>
         <x-input-label for="puesto" :value="__('Descripcion del puesto')" />
 
         <textarea 
-            name="descripcion" 
+            wire:model="descripcion" 
             class="rounded-md block border-gray-300 w-full h-72">
         </textarea>
 
-        <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
-    </div>
+    </div>-->
 
-    <div>
+    <div class="">
         <x-input-label for="imagen" :value="__('Imagen')" />
 
         <x-text-input   id="imagen" 
                         class="block mt-1 w-full" 
                         type="file" 
-                        name="imagen" 
-                        />
+                        wire:model="imagen" 
+                        accept="image/*"
+        />
+
+        <div class="my-5">
+            @if($imagen)
+                Imagen:
+                <img src="{{ $imagen->temporaryUrl() }}">
+            @endif
+        </div>
+
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror
+        
     </div>
-
-    <x-primary-button class="">
-                    {{ __('Crear Vacante') }}
-    </x-primary-button>
-
+        <x-primary-button class="bg-rose-800">
+            {{ __('Crear Vacante') }}
+        </x-primary-button>
+        
 
 </form>
   

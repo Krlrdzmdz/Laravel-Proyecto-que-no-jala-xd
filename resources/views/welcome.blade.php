@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
         <!-- Fonts -->
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+        </style>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <style>
             html, body {
                 background-color: #fff;
@@ -70,7 +75,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                <div class="links">
+                <div class="links border border-primary">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>

@@ -8,13 +8,25 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
+    extend: {
+        Image: {
+          'fondo': "url('/public/images/1.jpeg')",
+        },
+    },
+
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                logo1: ['Almendra'],
+                logo2: ['Aboreto']
             },
+            
         },
     },
 
+
     plugins: [require('@tailwindcss/forms')],
 };
+
+

@@ -1,5 +1,5 @@
 @php
-    $classes = "text-sm text-gray-600 hover:text-rose-900"
+    $classes = "text-sm text-rose-700 hover:text-rose-900"
 @endphp
 
     <!-- Simplicity is an acquired taste. - Katharine Gerould -->
