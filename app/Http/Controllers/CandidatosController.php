@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Vacante;
 use Illuminate\Http\Request;
 use App\Exports\UserExport;
+use Faker\Core\Number;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CandidatosController extends Controller
 {
@@ -21,9 +26,18 @@ class CandidatosController extends Controller
         ]);
     }
 
-    public function export()
+    public function export($vacante)
     {
-        return Excel::download(new UserExport, 'candidatos.xlsx');
+        //dd($vacante);
+        return Excel::download(new UserExport($vacante), 'candidatos.xlsx');
     }
+
+    
+    public function exportPDF($vacante)
+    {   
+        $pdf = PDF::loadView('template');
+        return $pdf->download('candidatos.pdf');    
+    }
+
 
 }

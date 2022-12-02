@@ -67,7 +67,7 @@ class VacanteController extends Controller
 
         return view('vacantes.edit',[
             'vacante' =>$vacante
-        ]);       
+        ]);
     }
 
 }

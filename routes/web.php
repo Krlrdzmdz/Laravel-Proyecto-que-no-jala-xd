@@ -24,7 +24,8 @@ Route::get('/vacantes.create', [VacanteController::class, 'create'])->middleware
 Route::get('/vacantes.{vacante}/edit', [VacanteController::class, 'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 Route::get('/vacantes.{vacante}', [VacanteController::class, 'show'])->name('vacantes.show');
 Route::get('/candidatos/{vacante}', [CandidatosController::class, 'index'])->name('candidatos.index');
-Route::get('/candidatos.export', [CandidatosController::class, 'export'])->name('candidatos.export');
+Route::get('/candidatos.export/{id}', [CandidatosController::class, 'export'])->name('candidatos.export');
+Route::get('/candidatos.exportPDF/{id}','CandidatosController@exportPDF');
 
 
 //Notificaciones
